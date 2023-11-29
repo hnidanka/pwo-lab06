@@ -2,19 +2,43 @@ package pwo.seq;
 
 import java.math.BigDecimal;
 
+/**
+ * Klasa reprezentująca generator ciągu Tribonacciego.
+ * Dziedziczy po klasie FibonacciGenerator.
+ * 
+ * <p>
+ * Klasa implementuje generację ciągu Tribonacciego, który jest podobny do ciągu
+ * Fibonacciego, ale zaczyna się od trzech początkowych wartości: 0, 0, 1.
+ * </p>
+ * 
+ * @author sofiia
+ */
 public class TribonacciGenerator extends
         FibonacciGenerator {
 
+   /**
+     * Konstruktor inicjalizujący generator Tribonacciego.
+     * Ustawia trzecią poprzednią wartość (f_3) na 0.
+     */
     public TribonacciGenerator() {
         f_3 = new BigDecimal(0);
     }
 
+    /**
+     * Resetuje generator Tribonacciego do stanu początkowego.
+     * Ustawia trzecią poprzednią wartość (f_3) na 0.
+     */
     @Override
     public void reset() {
         super.reset();
         f_3 = new BigDecimal(0);
     }
 
+   /**
+     * Generuje kolejną wartość ciągu Tribonacciego.
+     *
+     * @return Kolejna wartość ciągu Tribonacciego.
+     */
     @Override
     public BigDecimal nextTerm() {
         if (lastIndex > 2) {

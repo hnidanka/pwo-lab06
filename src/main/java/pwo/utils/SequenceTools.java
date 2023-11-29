@@ -4,8 +4,11 @@
  */
 
 /**
+ * Klasa narzędziowa służąca do obsługi obiektów<br>
+ * implementujących interfejs {@link SequenceGenerator}
  *
- * 
+ * @author sofiia
+ * @version 1.0.0
  */
 package pwo.utils;
 
@@ -13,8 +16,12 @@ package pwo.utils;
  import java.io.BufferedWriter;
  import java.io.IOException;
 
- public class SequenceTools {
-
+/**
+ *
+ * @author student
+ */
+public class SequenceTools {
+ 
  private static String getTerms(SequenceGenerator sg,
  int from, int to, String sep) {
 
@@ -27,17 +34,37 @@ package pwo.utils;
  i+=step;
  }
  }
-
+/**
+ *
+ * @param sg
+ * @param from
+ * @param to
+ * @return
+ */
  public static String getTermsAsColumn(SequenceGenerator sg,
  int from, int to) {
  return getTerms(sg, from, to, "\n");
  }
-
+/**
+ *
+ * @param sg
+ * @param from
+ * @param to
+ * @return
+ */
  public static String getTermsAsLine(SequenceGenerator sg,
  int from, int to) {
  return getTerms(sg, from, to, " ");
  }
-
+ /**
+ *
+ *
+ * @param sg
+ * @param from
+ * @param to
+ * @param fileName
+ * @return
+ */
  public static boolean writeToFile(SequenceGenerator sg,
  int from, int to, String fileName) {
 
