@@ -3,10 +3,22 @@ package pwo.seq;
 import java.math.BigDecimal;
 import pwo.utils.SequenceGenerator;
 
+/**
+ * Klasa implementująca generator ciągu Fibonacciego.
+ * Dziedziczy po klasie abstrakcyjnej Generator.
+ * Wykorzystuje bufor (cache) do przechowywania wcześniej obliczonych wartości.
+ * Ogranicza się do 100 wartości w buforze, ale automatycznie rozszerza go w razie potrzeby.
+ * Każda wartość jest reprezentowana jako obiekt BigDecimal dla precyzji obliczeń.
+ * 
+ * @author sofiia
+ */
 public class FibonacciGenerator extends Generator {
 
     private BigDecimal[] cache;
 
+   /**
+     * Konstruktor inicjalizujący generator i bufor.
+     */
     public FibonacciGenerator() {
         super();
         cache = new BigDecimal[100]; // Ustal odpowiednią wielkość bufora
@@ -21,12 +33,21 @@ public class FibonacciGenerator extends Generator {
         cache[1] = new BigDecimal(1);
     }
 
+    /**
+     * Generuje kolejną wartość ciągu Fibonacciego, dodając poprzednie dwie wartości.
+     * Rozszerza bufor, jeśli ostatnia generowana wartość przekroczy jego aktualny rozmiar.
+     *
+     * @return Kolejna wartość ciągu Fibonacciego.
+     */
     @Override
     public void reset() {
         super.reset();
         initializeCache();
     }
 
+ /**
+     * Resetuje generator oraz bufor do stanu początkowego.
+     */
     @Override
     public BigDecimal nextTerm() {
         if (lastIndex >= cache.length) {
